@@ -16,7 +16,7 @@ router
   .get(authorize, userController.getCurrentUser)
   .put(authorize, userController.updateCurrentUser);
 
-router.route("/:userId").get(userController.getUserById);
+router.route("/:userId").get(authorize, userController.getUserById);
 
 router.route("/:userId/items").get(userController.getUserItems);
 
