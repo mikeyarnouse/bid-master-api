@@ -9,8 +9,8 @@ const upload = multer({ storage: storage });
 router
   .route("/")
   .get(itemController.getItems)
-  .post(authorize, upload.single("image"), itemController.postItem);
-// .patch(itemController.updateItemsHighestBid);
+  .post(authorize, upload.single("image"), itemController.postItem)
+  .patch(itemController.updateItemsHighestBid);
 // .patch(itemController.deleteBidsLowerThanStartBid);
 
 router
