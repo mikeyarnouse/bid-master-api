@@ -360,7 +360,7 @@ const updateItemsHighestBid = async (req, res) => {
         }
       }
     });
-    res.send(updatedItems);
+    res.status(200).send("Patched items highest bids");
   } catch (e) {
     res.send({ message: `Error, ${e}` });
   }
@@ -377,7 +377,7 @@ const deleteBidsLowerThanStartBid = async (req, res) => {
         }
       }
     });
-    res.send(updatedItems);
+    res.status(200).send("Patched item bids lower than item start bid");
   } catch (e) {
     res.send({ message: `Error, ${e}` });
   }
