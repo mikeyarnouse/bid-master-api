@@ -9,29 +9,19 @@ const bidRoutes = require("./routes/bid-routes");
 const registerRoute = require("./routes/register-route");
 const loginRoute = require("./routes/login-route");
 const uploadRoute = require("./routes/upload-route");
-const authorize = require("./middleware/authorize");
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 8080;
 
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 
-// app.use((req, res, next) => {
-//   console.log("Incoming request");
-//   console.log("Headers:", req.headers);
-//   console.log("Body:", req.body);
-//   next();
-// });
-
-app.use("/api/register", registerRoute);
-app.use("/api/login", loginRoute);
-
 app.use("/api/users", userRoutes);
 app.use("/api/items", itemRoutes);
 app.use("/api/bids", bidRoutes);
-
+app.use("/api/register", registerRoute);
+app.use("/api/login", loginRoute);
 app.use("/api/upload", uploadRoute);
 
 app.get("/", (req, res) => res.send("Hello World!"));

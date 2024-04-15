@@ -6,10 +6,10 @@ require("dotenv").config();
 module.exports = {
   client: "mysql2",
   connection: {
-    host: "127.0.0.1",
-    database: process.env.DB_LOCAL_NAME,
-    user: process.env.DB_LOCAL_USER,
-    password: process.env.DB_LOCAL_PASSWORD,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
     charset: "utf8",
   },
 };
