@@ -10,8 +10,8 @@ router
   .route("/")
   .get(itemController.getItems)
   .post(authorize, upload.single("image"), itemController.postItem)
-  .patch(itemController.updateItemsHighestBid);
-// .patch(itemController.deleteBidsLowerThanStartBid);
+  // .patch(itemController.updateItemsHighestBid);
+  .patch(itemController.deleteBidsLowerThanStartBid);
 
 router
   .route("/:itemId")
